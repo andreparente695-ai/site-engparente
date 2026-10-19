@@ -35,6 +35,40 @@ section[data-md]>*:not(.mdagua){position:relative;z-index:1}
 .md4c{right:-12%;top:-10%;width:min(40vw,560px);opacity:.032}
 .md4d{left:-16%;top:4%;width:min(44vw,640px)}
 .md4e{right:-10%;top:10%;width:min(40vw,560px)}
+/* 18/10/2026: janela "Solicitar proposta" (pedido do Andre) */
+body.pp-aberto{overflow:hidden}
+.pp-ov{position:fixed;inset:0;z-index:50;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(4,9,18,.74);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+.pp-ov.on{display:flex}
+.pp{box-sizing:border-box;width:100%;max-width:660px;max-height:calc(100vh - 48px);overflow:auto;padding:34px 34px 30px;background:#0E1B2F;border:1px solid rgba(233,237,243,.14);color:#E9EDF3;font-family:'IBM Plex Sans','Segoe UI',system-ui,sans-serif;box-shadow:0 30px 80px rgba(0,0,0,.45)}
+.pp-topo{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:24px}
+.pp-eyb{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.22em;color:#8FB3E3;margin-bottom:10px}
+.pp h2{margin:0;font-family:Archivo,'Segoe UI',sans-serif;font-weight:500;font-size:26px;letter-spacing:-.01em;color:#FFFFFF;line-height:1.15}
+.pp-x{flex:0 0 40px;width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;border:1px solid rgba(233,237,243,.2);background:transparent;color:#E9EDF3;font-size:18px;cursor:pointer}
+.pp-x:hover{border-color:rgba(233,237,243,.5)}
+.pp-lb{display:block;padding:0;margin:0 0 10px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.18em;color:#8494A9;text-transform:uppercase}
+.pp-g{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px;margin-bottom:16px}
+.pp-c{display:flex;flex-direction:column;min-width:0}
+.pp-c.l2{grid-column:1 / -1}
+.pp input[type=text],.pp input[type=tel],.pp input[type=email],.pp textarea,.pp select{box-sizing:border-box;width:100%;padding:12px 14px;background:rgba(10,20,36,.6);border:1px solid rgba(233,237,243,.2);border-radius:0;color:#FFFFFF;font:inherit;font-size:15px;font-weight:300}
+.pp textarea{min-height:110px;resize:vertical;line-height:1.6}
+.pp input::placeholder,.pp textarea::placeholder{color:#6F8098}
+.pp input:focus,.pp textarea:focus,.pp select:focus{outline:0;border-color:#3B7BC8;box-shadow:0 0 0 3px rgba(59,123,200,.25)}
+.pp .pp-inv{border-color:#E06A6A!important}
+.pp-erro{display:none;margin:0 0 16px;padding:10px 14px;border-left:2px solid #E06A6A;background:rgba(224,106,106,.1);font-size:13px;color:#F3C4C4}
+.pp-erro.on{display:block}
+.pp-acoes{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.pp-b1,.pp-b2{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;font:inherit;font-size:13px;letter-spacing:.1em;cursor:pointer}
+.pp-b1{background:#E9EDF3;color:#0A1424;border:1px solid #E9EDF3;font-weight:500}
+.pp-b1:hover{background:#FFFFFF}
+.pp-b2{background:transparent;color:#E9EDF3;border:1px solid rgba(233,237,243,.28)}
+.pp-b2:hover{border-color:rgba(233,237,243,.6)}
+.pp-nota{margin:16px 0 0;font-size:12px;line-height:1.6;color:#8494A9}
+@media (max-width:600px){.pp-ov{padding:0;align-items:stretch}.pp{max-width:none;max-height:none;height:100%;padding:24px 18px 28px;border:0}.pp-g{grid-template-columns:1fr}.pp h2{font-size:22px}.pp-acoes>*{flex:1 1 100%}}
+.pp-sel{position:relative}
+.pp-sel::after{content:"";position:absolute;right:18px;top:50%;width:8px;height:8px;border-right:1.5px solid #8FB3E3;border-bottom:1.5px solid #8FB3E3;transform:translateY(-70%) rotate(45deg);pointer-events:none}
+.pp select{appearance:none;-webkit-appearance:none;padding-right:46px;cursor:pointer}
+.pp select:invalid{color:#6F8098}
+.pp option{background:#0E1B2F;color:#E9EDF3}
 </style>
 </head>
 <body>
@@ -65,7 +99,7 @@ ACESSO RESTRITO</a>
 <h1 style="margin: 0; font-family: Archivo, 'Segoe UI', sans-serif; font-weight: 500; font-size: clamp(38px, 5.6vw, 74px); line-height: 1.06; letter-spacing: -.02em; max-width: 940px; color: #FFFFFF">Gestão técnica de obras e projetos, do estudo à entrega.</h1>
 <p style="margin: 0; font-size: 18px; font-weight: 300; line-height: 1.7; color: #A9B5C4; max-width: 600px">Estudos de viabilidade, gerenciamento, fiscalização, projetos em BIM e laudos com responsabilidade técnica, rastreabilidade e aderência às normas ABNT, em todo o território nacional.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 12px">
-<a href="#contato" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; background: #E9EDF3; color: #0A1424; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: .1em">SOLICITAR PROPOSTA</a>
+<a href="#contato" data-proposta style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; background: #E9EDF3; color: #0A1424; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: .1em">SOLICITAR PROPOSTA</a>
 <a href="#servicos" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; border: 1px solid rgba(233,237,243,.28); color: #E9EDF3; text-decoration: none; font-size: 13px; letter-spacing: .1em">VER SERVIÇOS</a>
 </div>
 </div>
@@ -106,12 +140,12 @@ ACESSO RESTRITO</a>
 <h2 style="margin: 0; font-family: Archivo, 'Segoe UI', sans-serif; font-weight: 500; font-size: clamp(30px, 3.4vw, 44px); letter-spacing: -.015em; line-height: 1.12; color: #FFFFFF">Vamos conversar sobre a sua obra.</h2>
 <p style="margin: 0; font-size: 16px; font-weight: 300; line-height: 1.7; color: #A9B5C4; max-width: 460px">Envie o escopo ou agende uma visita técnica. Respondemos com uma proposta objetiva.</p>
 <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px">
-<a href="https://wa.me/5521971441934" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; background: #E9EDF3; color: #0A1424; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: .1em">WHATSAPP (21) 97144-1934</a>
-<a href="mailto:andre@engparente.com.br" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; border: 1px solid rgba(233,237,243,.28); color: #E9EDF3; text-decoration: none; font-size: 13px; letter-spacing: .06em">andre@engparente.com.br</a>
+<button type="button" data-proposta style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; background: #E9EDF3; color: #0A1424; text-decoration: none; font-weight: 500; font-size: 13px; letter-spacing: .1em; border: 0; font-family: inherit; cursor: pointer">SOLICITAR PROPOSTA</button>
+<a href="https://wa.me/5521971441934" target="_blank" rel="noopener" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; border: 1px solid rgba(233,237,243,.28); color: #E9EDF3; text-decoration: none; font-size: 13px; letter-spacing: .1em">WHATSAPP (21) 97144-1934</a>
+<a href="mailto:contato@engparente.com.br" style="display: inline-flex; align-items: center; min-height: 52px; padding: 0 30px; border: 1px solid rgba(233,237,243,.28); color: #E9EDF3; text-decoration: none; font-size: 13px; letter-spacing: .06em">contato@engparente.com.br</a>
 </div>
 </div>
 <div style="flex: 1 1 300px; display: flex; flex-direction: column; gap: 22px; font-size: 15px; font-weight: 300; line-height: 1.7; color: #A9B5C4">
-<div><div style="font-size: 11px; letter-spacing: .18em; color: #6F8098; margin-bottom: 6px">ENDEREÇO</div>Ilha do Governador, Rio de Janeiro/RJ</div>
 <div><div style="font-size: 11px; letter-spacing: .18em; color: #6F8098; margin-bottom: 6px">EMPRESA</div>ENG PARENTE LTDA<br>CNPJ 45.051.709/0001-54<br>Registro CREA-RJ nº 2026201056</div>
 </div>
 </div>
@@ -122,5 +156,100 @@ ACESSO RESTRITO</a>
 </section>
 
 </div>
+<div class="pp-ov" id="ppOv" aria-hidden="true">
+<div class="pp" role="dialog" aria-modal="true" aria-labelledby="ppTit">
+<div class="pp-topo">
+<div><div class="pp-eyb">SOLICITAR PROPOSTA</div><h2 id="ppTit">Conte o que você precisa</h2></div>
+<button type="button" class="pp-x" id="ppFechar" aria-label="Fechar">&#10005;</button>
+</div>
+<form id="ppForm" novalidate>
+<div class="pp-g">
+<div class="pp-c l2"><label class="pp-lb" for="ppServico">Serviço *</label><div class="pp-sel"><select id="ppServico" required><option value="" selected disabled>Selecione o serviço</option><option>Estudo de viabilidade técnica</option><option>Gerenciamento de obras</option><option>Fiscalização de obras</option><option>Gestão de obras e contratos</option><option>Projetos multidisciplinares (BIM)</option><option>Laudos e pareceres técnicos</option><option>Segurança contra incêndio (CBMERJ)</option><option>Orçamentos e concorrências</option><option>Medições e controle de contratos</option><option>Outro</option></select></div></div>
+<div class="pp-c"><label class="pp-lb" for="ppNome">Nome *</label><input type="text" id="ppNome" maxlength="80" autocomplete="name"></div>
+<div class="pp-c"><label class="pp-lb" for="ppEmpresa">Empresa</label><input type="text" id="ppEmpresa" maxlength="80" autocomplete="organization"></div>
+<div class="pp-c"><label class="pp-lb" for="ppTel">Telefone / WhatsApp *</label><input type="tel" id="ppTel" maxlength="20" autocomplete="tel" placeholder="(21) 99999-9999"></div>
+<div class="pp-c"><label class="pp-lb" for="ppEmail">E-mail</label><input type="email" id="ppEmail" maxlength="120" autocomplete="email"></div>
+<div class="pp-c l2"><label class="pp-lb" for="ppLocal">Local da obra (bairro, cidade/UF)</label><input type="text" id="ppLocal" maxlength="80"></div>
+<div class="pp-c l2"><label class="pp-lb" for="ppDesc">Descrição *</label><textarea id="ppDesc" maxlength="1200" placeholder="Escopo, área aproximada, prazos, o que já existe (projetos, licenças)..."></textarea></div>
+</div>
+<div class="pp-erro" id="ppErro" role="alert"></div>
+<div class="pp-acoes">
+<button type="button" class="pp-b1" id="ppWpp">ENVIAR PELO WHATSAPP</button>
+<button type="button" class="pp-b2" id="ppMail">ENVIAR POR E-MAIL</button>
+</div>
+<p class="pp-nota">Nada é gravado neste site: a mensagem é montada e aberta no seu WhatsApp ou no seu e-mail, para você conferir e enviar.</p>
+</form>
+</div>
+</div>
+<script>
+(function () {
+  'use strict';
+  var WPP = '5521971441934', MAIL = 'contato@engparente.com.br';
+  var ov = document.getElementById('ppOv'), form = document.getElementById('ppForm'), erro = document.getElementById('ppErro'), ultimo = null;
+  function $(id) { return document.getElementById(id); }
+  function focaveis() { return Array.prototype.slice.call(ov.querySelectorAll('button, input, textarea, [href]')).filter(function (e) { return !e.disabled && e.offsetParent !== null; }); }
+  function abrir(ev) {
+    if (ev) ev.preventDefault();
+    ultimo = document.activeElement;
+    ov.classList.add('on'); ov.setAttribute('aria-hidden', 'false'); document.body.classList.add('pp-aberto');
+    setTimeout(function () { $('ppServico').focus(); }, 30);
+  }
+  function fechar() {
+    ov.classList.remove('on'); ov.setAttribute('aria-hidden', 'true'); document.body.classList.remove('pp-aberto');
+    if (ultimo && ultimo.focus) ultimo.focus();
+  }
+  Array.prototype.forEach.call(document.querySelectorAll('[data-proposta]'), function (b) { b.addEventListener('click', abrir); });
+  $('ppFechar').addEventListener('click', fechar);
+  ov.addEventListener('click', function (e) { if (e.target === ov) fechar(); });
+  document.addEventListener('keydown', function (e) {
+    if (!ov.classList.contains('on')) return;
+    if (e.key === 'Escape') { fechar(); return; }
+    if (e.key === 'Tab') {
+      var f = focaveis(); if (!f.length) return;
+      var pri = f[0], ult = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === pri) { e.preventDefault(); ult.focus(); }
+      else if (!e.shiftKey && document.activeElement === ult) { e.preventDefault(); pri.focus(); }
+    }
+  });
+  function limpo(v) { return String(v || '').replace(/\s+/g, ' ').trim(); }
+  function mostrarErro(msg, el) {
+    erro.textContent = msg; erro.classList.add('on');
+    if (el) { el.classList.add('pp-inv'); try { el.focus(); } catch (e) { } }
+  }
+  ['ppNome', 'ppTel', 'ppEmail', 'ppDesc'].forEach(function (id) { $(id).addEventListener('input', function () { this.classList.remove('pp-inv'); erro.classList.remove('on'); }); });
+  $('ppServico').addEventListener('change', function () { this.classList.remove('pp-inv'); erro.classList.remove('on'); });
+  function coletar() {
+    erro.classList.remove('on');
+    var serv = $('ppServico').value;
+    var d = { serv: serv, nome: limpo($('ppNome').value), empresa: limpo($('ppEmpresa').value), tel: limpo($('ppTel').value),
+              email: limpo($('ppEmail').value), local: limpo($('ppLocal').value), desc: String($('ppDesc').value || '').trim() };
+    if (!serv) { mostrarErro('Escolha o serviço.', $('ppServico')); return null; }
+    if (d.nome.length < 3) { mostrarErro('Informe o seu nome.', $('ppNome')); return null; }
+    if (d.tel.replace(/\D/g, '').length < 10) { mostrarErro('Informe um telefone com DDD.', $('ppTel')); return null; }
+    if (d.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)) { mostrarErro('Confira o e-mail informado.', $('ppEmail')); return null; }
+    if (d.desc.length < 10) { mostrarErro('Descreva rapidamente o que você precisa.', $('ppDesc')); return null; }
+    return d;
+  }
+  function texto(d) {
+    var l = ['Olá! Gostaria de solicitar uma proposta.', '', 'Serviço: ' + d.serv, 'Nome: ' + d.nome];
+    if (d.empresa) l.push('Empresa: ' + d.empresa);
+    l.push('Telefone: ' + d.tel);
+    if (d.email) l.push('E-mail: ' + d.email);
+    if (d.local) l.push('Local da obra: ' + d.local);
+    l.push('', 'Descrição:', d.desc);
+    return l.join('\n');
+  }
+  $('ppWpp').addEventListener('click', function () {
+    var d = coletar(); if (!d) return;
+    var w = window.open('https://wa.me/' + WPP + '?text=' + encodeURIComponent(texto(d)), '_blank', 'noopener');
+    if (!w) location.href = 'https://wa.me/' + WPP + '?text=' + encodeURIComponent(texto(d));
+  });
+  $('ppMail').addEventListener('click', function () {
+    var d = coletar(); if (!d) return;
+    var assunto = 'Solicitação de proposta — ' + d.serv + (d.empresa ? ' — ' + d.empresa : '');
+    location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(texto(d));
+  });
+})();
+</script>
 </body>
 </html>
