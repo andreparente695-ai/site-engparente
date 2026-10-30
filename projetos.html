@@ -3,16 +3,27 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src https://gestao-production-cd37.up.railway.app; form-action 'none'; base-uri 'self'; object-src 'none'; frame-src 'none'; worker-src 'none'; manifest-src 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="ep-api" content="https://gestao-production-cd37.up.railway.app/api/publico/site">
 <title>Projetos — ENG.PARENTE</title>
 <meta name="robots" content="noindex">
-<meta name="description" content="Gerenciamento e fiscalização de obras, estudos de viabilidade técnica, projetos em BIM, laudos e segurança contra incêndio, com responsabilidade técnica e aderência às normas ABNT. ENG PARENTE LTDA — Rio de Janeiro.">
-<meta property="og:title" content="ENG.PARENTE — Gestão de Obras e Projetos">
-<meta property="og:description" content="Engenharia que transforma planos em resultados: gestão de obras, projetos em BIM, fiscalização e consultoria técnica.">
+<meta name="description" content="Gerenciamento, gestão e fiscalização de obras, projetos em BIM, laudos técnicos, orçamentos e segurança contra incêndio no Rio de Janeiro e em todo o Brasil.">
+<meta property="og:site_name" content="ENG.PARENTE">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:title" content="ENG.PARENTE — Gerenciamento de Obras e Projetos">
+<meta property="og:description" content="Engenharia que transforma planos em resultados: gerenciamento e fiscalização de obras, projetos em BIM, laudos e consultoria técnica.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.engparente.com.br/projetos.html">
+<meta property="og:image" content="https://www.engparente.com.br/img/og-engparente.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="ENG.PARENTE — Engenharia que transforma planos em resultados.">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="canonical" href="https://www.engparente.com.br/projetos.html">
 <meta name="theme-color" content="#0A1B28">
 <link rel="icon" type="image/jpeg" href="img/logo-ep.jpg">
+<link rel="apple-touch-icon" href="img/logo-ep.jpg">
 <style>
 @font-face{font-family:'Archivo';font-style:normal;font-weight:400;font-display:swap;src:url(fontes/archivo-latin-400-normal.woff2) format('woff2')}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:500;font-display:swap;src:url(fontes/archivo-latin-500-normal.woff2) format('woff2')}
@@ -267,6 +278,8 @@ body.pp-aberto{overflow:hidden}
 .pp-fim p{margin:0 0 12px;font-size:15.5px;line-height:1.65;font-weight:300;color:#C7D0DB}
 .pp-fim strong{font-family:'IBM Plex Mono',monospace;font-weight:400;letter-spacing:.06em;color:#DDA586}
 .pp-fim .pp-acoes{margin-top:24px}
+@media (min-width:1181px) and (max-width:1340px){.hd-in{gap:32px;padding:0 44px 0 52px}.nav{gap:26px}.acesso{padding-left:26px}}
+@media (min-width:981px) and (max-width:1120px){.hd-in{gap:22px;padding:0 28px 0 32px}.nav{gap:20px}.acesso{padding-left:18px}.acesso span{display:none}}
 </style>
 </head>
 <body class="pg-cheia">
@@ -274,7 +287,7 @@ body.pp-aberto{overflow:hidden}
 <header class="hd">
 <div class="hd-in">
 <a class="marca" href="./#inicio" aria-label="ENG.PARENTE — início"><img src="img/logo-ep.jpg" alt="" width="54" height="54"><span><b>ENG.PARENTE</b><small>GESTÃO DE OBRAS E PROJETOS</small></span></a>
-<nav class="nav" id="menuPrincipal" aria-label="Principal"><a href="./#servicos">Serviços</a><a href="./#sobre">Sobre nós</a><a href="projetos.html" aria-current="page">Projetos</a><a href="./#contato">Contato</a></nav>
+<nav class="nav" id="menuPrincipal" aria-label="Principal"><a href="./#servicos">Serviços</a><a href="./#sobre">Sobre nós</a><a href="projetos.html" aria-current="page">Projetos</a><a href="trabalhe-conosco.html">Trabalhe conosco</a><a href="./#contato">Contato</a></nav>
 <a class="acesso" href="https://gestao-production-cd37.up.railway.app/" rel="noopener" aria-label="Acesso restrito (sistema de gestão)"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="5" y="11" width="14" height="10" rx="1.5"/><path d="M8 11V7.5a4 4 0 0 1 8 0V11"/></svg><span>ACESSO RESTRITO</span></a>
 <button type="button" class="menu-bt" aria-expanded="false" aria-controls="menuPrincipal" aria-label="Abrir menu"><span></span><span></span><span></span></button>
 </div>
@@ -299,40 +312,11 @@ body.pp-aberto{overflow:hidden}
 <div class="wrap"><span class="cred">ART em todos os serviços · Normas ABNT/NBR · Atuação em todo o território nacional</span><span>© 2026 ENG PARENTE LTDA · engparente.com.br · Imagens ilustrativas</span></div>
 </footer>
 
-<script>
-(function () {
-  'use strict';
-  // menu do celular
-  var hd = document.querySelector('.hd'), bt = hd && hd.querySelector('.menu-bt');
-  if (bt) {
-    var marca = function (a) { hd.classList.toggle('aberto', a); bt.setAttribute('aria-expanded', a ? 'true' : 'false'); bt.setAttribute('aria-label', a ? 'Fechar menu' : 'Abrir menu'); };
-    bt.addEventListener('click', function () { marca(!hd.classList.contains('aberto')); });
-    Array.prototype.forEach.call(hd.querySelectorAll('.nav a'), function (a) { a.addEventListener('click', function () { marca(false); }); });
-    document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && hd.classList.contains('aberto')) { marca(false); bt.focus(); } });
-    document.addEventListener('click', function (e) { if (hd.classList.contains('aberto') && !hd.contains(e.target)) marca(false); });
-    if (window.matchMedia) { var mq = window.matchMedia('(min-width: 981px)'), f = function (e) { if (e.matches) marca(false); };
-      if (mq.addEventListener) mq.addEventListener('change', f); else if (mq.addListener) mq.addListener(f); }
-  }
-})();
-(function () {
-  'use strict';
-  // carrossel do topo
-  var box = document.getElementById('heroImg'); if (!box) return;
-  var sl = box.querySelectorAll('.sl'), n = sl.length, i = 0, t = null;
-  var num = document.getElementById('indN'), txt = document.getElementById('indTxt'), barra = document.getElementById('indBarra');
-  var calmo = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function mostra(k) {
-    sl[i].classList.remove('on'); i = k; sl[i].classList.add('on');
-    num.textContent = ('0' + (i + 1)).slice(-2); txt.textContent = sl[i].getAttribute('data-cap') || '';
-    barra.classList.remove('anda'); void barra.offsetWidth; if (!calmo && n > 1) barra.classList.add('anda');
-  }
-  function proximo() { mostra((i + 1) % n); }
-  function liga() { if (calmo || n < 2) { barra.style.width = '100%'; return; } desliga(); t = setInterval(proximo, 6000); }
-  function desliga() { if (t) clearInterval(t); t = null; }
-  document.addEventListener('visibilitychange', function () { if (document.hidden) desliga(); else { mostra(i); liga(); } });
-  mostra(0); liga();
-})();
-</script>
+<script src="js/cofre.js" integrity="sha384-Z9ecxt4FRZyYOstcoasKb/piGrGJ0u4Ei+uRRortQOh/DqDy3l0KbX2mQk2REQhX" defer></script>
+<script src="js/chaves.js" integrity="sha384-T8cLqMWMJvNpc6FTlHyMQeswWEmgK7x/Hl8TrO4GZPV/u6ytz0CI87vdwH6BGMl8" defer></script>
+<script src="js/contador.js" integrity="sha384-ABpJ3tqrbdjBnyzAygbUmQwT/kNhdpla49K2Na2grUfhdnWR4dXWNeWuH/xbVrh3" defer></script>
+<script src="js/site.js" integrity="sha384-M8kqcez0wbDZx+yeka4OjNh3E24zzUHRjiEP6OhIDaL+8TL0TAFhFHmMGEz5XXrX" defer></script>
+<script src="js/proposta.js" integrity="sha384-eFwmQe7LlheX8lvmm+7jWGpv1eKfZi6KOVfJtWV0egaaX90TUKBpvjhuQ5tM0gis" defer></script>
 <div class="pp-ov" id="ppOv" aria-hidden="true">
 <div class="pp" role="dialog" aria-modal="true" aria-labelledby="ppTit">
 <div class="pp-topo">
@@ -357,7 +341,7 @@ body.pp-aberto{overflow:hidden}
 <button type="button" class="pp-b2" id="ppWpp">PREFIRO WHATSAPP</button>
 <button type="button" class="pp-b2" id="ppMail" hidden>ENVIAR POR E-MAIL</button>
 </div>
-<p class="pp-nota">A solicitação chega direto à nossa equipe. Se informar e-mail, você recebe uma confirmação com o número do protocolo.</p>
+<p class="pp-nota">A solicitação chega direto à nossa equipe, protegida: os dados são trancados neste aparelho antes do envio e só a equipe da ENG PARENTE consegue abrir. Se informar e-mail, você recebe uma confirmação com o número do protocolo.</p>
 </form>
 <div class="pp-fim" id="ppFim" hidden>
 <p>Protocolo <strong id="ppProt"></strong></p>
@@ -366,123 +350,5 @@ body.pp-aberto{overflow:hidden}
 </div>
 </div>
 </div>
-<script>
-(function () {
-  'use strict';
-  /* 19/10/2026: a solicitacao vai DIRETO para a ENG PARENTE pelo sistema de gestao (POST /api/publico/contato; e-mail para
-     contato@ + confirmacao ao visitante). WhatsApp continua como opcao; se o envio falhar, aparece tambem "Enviar por e-mail". */
-  var WPP = '5521971441934', MAIL = 'contato@engparente.com.br', API = 'https://gestao-production-cd37.up.railway.app/api/publico/contato';
-  var ov = document.getElementById('ppOv'), form = document.getElementById('ppForm'), erro = document.getElementById('ppErro'), fim = document.getElementById('ppFim');
-  var ultimo = null, abertoEm = 0, enviando = false;
-  function $(id) { return document.getElementById(id); }
-  function focaveis() { return Array.prototype.slice.call(ov.querySelectorAll('button, input, select, textarea, [href]')).filter(function (e) { return !e.disabled && e.offsetParent !== null && e.tabIndex >= 0; }); }
-  function limpar() {
-    form.reset(); form.hidden = false; fim.hidden = true; $('ppTit').textContent = 'Conte o que você precisa'; $('ppEyb').textContent = 'SOLICITAR PROPOSTA'; $('ppMail').hidden = true; erro.classList.remove('on');
-    Array.prototype.forEach.call(form.querySelectorAll('.pp-inv'), function (e) { e.classList.remove('pp-inv'); });
-  }
-  function abrir(ev) {
-    if (ev) ev.preventDefault();
-    if (!fim.hidden) limpar(); // depois de um envio, a janela volta em branco
-    ultimo = document.activeElement;
-    var sv = ev && ev.currentTarget && ev.currentTarget.getAttribute ? ev.currentTarget.getAttribute('data-servico') : '';
-    if (sv) { var sel = $('ppServico'); for (var i = 0; i < sel.options.length; i++) if (sel.options[i].text === sv) { sel.selectedIndex = i; break; } }
-    ov.classList.add('on'); ov.setAttribute('aria-hidden', 'false'); document.body.classList.add('pp-aberto');
-    abertoEm = Date.now();
-    setTimeout(function () { (sv ? $('ppNome') : $('ppServico')).focus(); }, 30);
-  }
-  function fechar() {
-    if (enviando) return; // nao fecha no meio do envio
-    ov.classList.remove('on'); ov.setAttribute('aria-hidden', 'true'); document.body.classList.remove('pp-aberto');
-    if (ultimo && ultimo.focus) ultimo.focus();
-  }
-  Array.prototype.forEach.call(document.querySelectorAll('[data-proposta]'), function (b) { b.addEventListener('click', abrir); });
-  $('ppFechar').addEventListener('click', fechar);
-  $('ppFimFechar').addEventListener('click', fechar);
-  ov.addEventListener('click', function (e) { if (e.target === ov) fechar(); });
-  document.addEventListener('keydown', function (e) {
-    if (!ov.classList.contains('on')) return;
-    if (e.key === 'Escape') { fechar(); return; }
-    if (e.key === 'Tab') {
-      var f = focaveis(); if (!f.length) return;
-      var pri = f[0], ult = f[f.length - 1];
-      if (e.shiftKey && document.activeElement === pri) { e.preventDefault(); ult.focus(); }
-      else if (!e.shiftKey && document.activeElement === ult) { e.preventDefault(); pri.focus(); }
-    }
-  });
-  function limpo(v) { return String(v || '').replace(/\s+/g, ' ').trim(); }
-  function mostrarErro(msg, el) {
-    erro.textContent = msg; erro.classList.add('on');
-    if (el) { el.classList.add('pp-inv'); try { el.focus(); } catch (e) { } }
-  }
-  ['ppNome', 'ppTel', 'ppEmail', 'ppDesc'].forEach(function (id) { $(id).addEventListener('input', function () { this.classList.remove('pp-inv'); erro.classList.remove('on'); }); });
-  $('ppServico').addEventListener('change', function () { this.classList.remove('pp-inv'); erro.classList.remove('on'); });
-  $('ppConsent').addEventListener('change', function () { $('ppConsent').parentNode.classList.remove('pp-inv'); erro.classList.remove('on'); });
-  function coletar() {
-    erro.classList.remove('on');
-    var serv = $('ppServico').value;
-    var d = { serv: serv, nome: limpo($('ppNome').value), empresa: limpo($('ppEmpresa').value), tel: limpo($('ppTel').value),
-              email: limpo($('ppEmail').value), local: limpo($('ppLocal').value), desc: String($('ppDesc').value || '').trim() };
-    if (!serv) { mostrarErro('Escolha o serviço.', $('ppServico')); return null; }
-    if (d.nome.length < 3) { mostrarErro('Informe o seu nome.', $('ppNome')); return null; }
-    var dig = d.tel.replace(/\D/g, '');
-    if (dig.length < 10 || dig.length > 13) { mostrarErro('Informe um telefone com DDD.', $('ppTel')); return null; }
-    if (d.email && !/^[^\s@<>"'(),;:\\[\]]+@[^\s@<>"'(),;:\\[\]]+\.[^\s@<>"'(),;:\\[\]]{2,}$/.test(d.email)) { mostrarErro('Confira o e-mail informado.', $('ppEmail')); return null; }
-    if (d.desc.length < 10) { mostrarErro('Descreva rapidamente o que você precisa.', $('ppDesc')); return null; }
-    return d;
-  }
-  function texto(d) {
-    var l = ['Olá! Gostaria de solicitar uma proposta.', '', 'Serviço: ' + d.serv, 'Nome: ' + d.nome];
-    if (d.empresa) l.push('Empresa: ' + d.empresa);
-    l.push('Telefone: ' + d.tel);
-    if (d.email) l.push('E-mail: ' + d.email);
-    if (d.local) l.push('Local da obra: ' + d.local);
-    l.push('', 'Descrição:', d.desc);
-    return l.join('\n');
-  }
-  var CAMPO = { servico: 'ppServico', nome: 'ppNome', telefone: 'ppTel', email: 'ppEmail', descricao: 'ppDesc' };
-  function estadoEnvio(on) {
-    enviando = on; var b = $('ppEnviar');
-    b.disabled = on; b.textContent = on ? 'ENVIANDO…' : 'ENVIAR SOLICITAÇÃO'; form.setAttribute('aria-busy', on ? 'true' : 'false');
-  }
-  function falhou(msg) { $('ppMail').hidden = false; mostrarErro(msg + ' Se preferir, use o WhatsApp ou envie por e-mail.'); }
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    if (enviando) return;
-    var d = coletar(); if (!d) return;
-    if (!$('ppConsent').checked) { mostrarErro('Marque a autorização para usarmos os dados na resposta.', null); $('ppConsent').parentNode.classList.add('pp-inv'); $('ppConsent').focus(); return; }
-    var corpo = { servico: d.serv, nome: d.nome, empresa: d.empresa, telefone: d.tel, email: d.email, local: d.local, descricao: d.desc,
-                  consentimento: true, website: $('ppSite').value, t: Date.now() - abertoEm };
-    estadoEnvio(true);
-    var ctl = window.AbortController ? new AbortController() : null, tempo = setTimeout(function () { if (ctl) ctl.abort(); }, 20000);
-    fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(corpo), signal: ctl ? ctl.signal : undefined, credentials: 'omit' })
-      .then(function (r) { return r.json().catch(function () { return { ok: false }; }).then(function (j) { return { s: r.status, j: j || {} }; }); })
-      .then(function (res) {
-        clearTimeout(tempo); estadoEnvio(false);
-        if (res.s === 200 && res.j.ok) {
-          $('ppProt').textContent = res.j.protocolo || '';
-          $('ppFimTxt').textContent = 'Nossa equipe vai analisar e retornar em breve pelo telefone' + (d.email ? ' ou e-mail' : '') + ' informado.'
-            + (res.j.confirmacao ? ' Enviamos uma confirmação para ' + d.email + '.' : '');
-          $('ppEyb').textContent = 'SOLICITAÇÃO ENVIADA'; $('ppTit').textContent = 'Recebemos sua solicitação.';
-          form.hidden = true; fim.hidden = false; $('ppTit').focus();
-          return;
-        }
-        if (res.s === 400 && res.j.campo && CAMPO[res.j.campo]) { mostrarErro(res.j.erro || 'Confira os dados.', $(CAMPO[res.j.campo])); return; }
-        falhou(res.j.erro || 'Não foi possível enviar agora.');
-      })
-      .catch(function () { clearTimeout(tempo); estadoEnvio(false); falhou('Não foi possível enviar agora (sem conexão com o servidor).'); });
-  });
-  $('ppWpp').addEventListener('click', function () {
-    var d = coletar(); if (!d) return;
-    // sem 'noopener' na chamada: com ele o window.open devolve null e a pagina do site tambem saia para o WhatsApp
-    var url = 'https://wa.me/' + WPP + '?text=' + encodeURIComponent(texto(d)), w = window.open(url, '_blank');
-    if (w) { try { w.opener = null; } catch (e) { } } else location.href = url;
-  });
-  $('ppMail').addEventListener('click', function () {
-    var d = coletar(); if (!d) return;
-    var assunto = 'Solicitação de proposta — ' + d.serv + (d.empresa ? ' — ' + d.empresa : '');
-    location.href = 'mailto:' + MAIL + '?subject=' + encodeURIComponent(assunto) + '&body=' + encodeURIComponent(texto(d));
-  });
-})();
-</script>
 </body>
 </html>
